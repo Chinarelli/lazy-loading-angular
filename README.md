@@ -1,27 +1,41 @@
-# LazyApp
+# lazy-loading-angular
+Example project using Lazy Loading in Anguar.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.0.
+# Default route
+![Img1](https://i.imgur.com/yJhcDV7.png)
+![Img2](https://i.imgur.com/HZzyON4.png)
 
-## Development server
+# Loading Lazy module
+![Img1](https://i.imgur.com/T8mHL0n.png)
+![Img2](https://i.imgur.com/8PzOeaY.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Prerequisites
+* [Node.js](https://nodejs.org/en/) - Node.js
+* [Angular](https://angular.io/) - Angular
 
-## Code scaffolding
+### Running
+The server can be run locally and also deployed to your own server.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Run
+````
+# Install dependencies
+npm install
 
-## Build
+# Run Project
+ng serve
+````
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### As Angular 8+ has introduced the new module loading method, then it is recommended to use:
+````
+const routes: Routes = [
+  ...
+  {path: 'lazy', loadChildren: () => import('./lazy/lazy.module').then(m => m.LazyModule)}
+];
+````
 
-## Running unit tests
+### Authors
+* **Lucas Chinarelli** - [chinarelli](https://github.com/Chinarelli)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Reference
+* [Medium](https://medium.com/@thiago.reis/how-to-implement-lazy-loading-in-angular-c8dcbf165561)
+* [Angular Docs](https://angular.io/guide/lazy-loading-ngmodules)
